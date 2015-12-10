@@ -45,13 +45,14 @@ public class Avvio {
 		nstudenti=Integer.parseInt(input);
 		Studente[] students=new Studente[nstudenti];
 		for(int i=0;i<students.length;i++){
-			students[i]=new Studente();
+			//students[i]=new Studente();
 			System.out.println("INSERIRE IL NOME E COGNOME");
 			input =br.readLine();
 			String[] result=input.split(" ");
 			String nome=result[0];
 			String cognome = result[1];
-			students[i].assegnaNome(nome, cognome);
+			students[i]=new Studente(nome,cognome);
+			//students[i].assegnaNome(nome, cognome);
 			students[i].voti=new Voto[materia.length];
 			for(int k=0;k<materia.length;k++){
 				students[i].voti[k]=new Voto();
@@ -74,7 +75,7 @@ public class Avvio {
 					Thread.sleep(100);
 					System.out.println("...");
 				}
-				System.out.println(students[toInterview].nome+" "+students[toInterview].cognome+ " in cosa vorresti essere interrogato?");
+				System.out.println(students[toInterview].getNome()+" "+students[toInterview].getCognome()+ " in cosa vorresti essere interrogato?");
 				input=br.readLine();
 				if(input.equalsIgnoreCase(materia[subject])){
 					System.out.println("ti è andata bene oggi");
